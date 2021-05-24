@@ -1,0 +1,30 @@
+{ Sample program
+  in TINY language
+  compute plus
+  compute minus
+
+}
+read x; {input an integer}
+read y;{input an integer}
+write x+y;{output an integer}
+write x-y;{output an integer}
+write x*y;{output an integer}
+write x^y;{output an integer}
+write x/y;{output an integer}
+write x==y;{output an integer}
+write x+y/x;{output an integer}
+write x-y/x;{output an integer}
+write x*y/x;{output an integer}
+write x/y/x;{output an integer}
+write x*y+x;{output an integer}
+write x/y+x;{output an integer}
+write x+y/y;{output an integer}
+write x-y/y;{output an integer}
+write x*y/y;{output an integer}
+write x/y/y;{output an integer}
+write x&y;{output an integer}
+write x&y;{output an integer}
+write x*y-y;{output an integer}
+write x/y-y;{output an integer}
+write x-y/y+x{output an integer}
+end
