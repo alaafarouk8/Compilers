@@ -1,28 +1,8 @@
 Start StmtSeq
 Start Stmt
-Start ReadStmt
-Start Match
-[7] x (Num)
-Start Match
-[7] ; (LeftParen)
-End ReadStmt
-End Stmt
-Start Match
-[8] read (Read)
-Start Stmt
-Start ReadStmt
-Start Match
-[8] y (Num)
-Start Match
-[8] ; (LeftParen)
-End ReadStmt
-End Stmt
-Start Match
-[9] write (Write)
-Start Stmt
 Start WriteStmt
 Start Match
-[9] x (Num)
+[8] 100 (EndFile)
 Start Expr
 Start MathExpr
 Start Expr
@@ -30,15 +10,65 @@ Start Term
 Start Factor
 Start NewExpr
 Start Match
-[9] + (Plus)
+[8] + (Plus)
 End NewExpr
 End Factor
 End Term
 End Expr
 Start Match
-[9] y (Num)
+[8] 100 (EndFile)
 Start Expr
 Start Term
+Start Factor
+Start NewExpr
+Start Match
+[8] ^ (Power)
+End NewExpr
+Start Match
+[8] 2 (EndFile)
+Start Factor
+Start NewExpr
+Start Match
+[8] ; (LeftParen)
+End NewExpr
+End Factor
+End Factor
+End Term
+End Expr
+End MathExpr
+End Expr
+End WriteStmt
+End Stmt
+Start Match
+[9] write (Write)
+Start Stmt
+Start WriteStmt
+Start Match
+[9] 200 (EndFile)
+Start Expr
+Start MathExpr
+Start Expr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[9] - (Minus)
+End NewExpr
+End Factor
+End Term
+End Expr
+Start Match
+[9] 100 (EndFile)
+Start Expr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[9] * (Times)
+End NewExpr
+End Factor
+Start Match
+[9] 2 (EndFile)
 Start Factor
 Start NewExpr
 Start Match
@@ -56,7 +86,7 @@ Start Match
 Start Stmt
 Start WriteStmt
 Start Match
-[10] x (Num)
+[10] 5 (EndFile)
 Start Expr
 Start MathExpr
 Start Expr
@@ -64,15 +94,19 @@ Start Term
 Start Factor
 Start NewExpr
 Start Match
-[10] - (Minus)
+[10] * (Times)
 End NewExpr
 End Factor
-End Term
-End Expr
 Start Match
-[10] y (Num)
-Start Expr
-Start Term
+[10] 5 (EndFile)
+Start Factor
+Start NewExpr
+Start Match
+[10] / (Divide)
+End NewExpr
+End Factor
+Start Match
+[10] 1 (EndFile)
 Start Factor
 Start NewExpr
 Start Match
@@ -90,7 +124,7 @@ Start Match
 Start Stmt
 Start WriteStmt
 Start Match
-[11] x (Num)
+[11] 2 (EndFile)
 Start Expr
 Start MathExpr
 Start Expr
@@ -98,11 +132,23 @@ Start Term
 Start Factor
 Start NewExpr
 Start Match
-[11] * (Times)
+[11] ^ (Power)
+End NewExpr
+Start Match
+[11] 6 (EndFile)
+Start Factor
+Start NewExpr
+Start Match
+[11] + (Plus)
 End NewExpr
 End Factor
+End Factor
+End Term
+End Expr
 Start Match
-[11] y (Num)
+[11] 5 (EndFile)
+Start Expr
+Start Term
 Start Factor
 Start NewExpr
 Start Match
@@ -120,7 +166,7 @@ Start Match
 Start Stmt
 Start WriteStmt
 Start Match
-[12] x (Num)
+[12] 6 (EndFile)
 Start Expr
 Start MathExpr
 Start Expr
@@ -128,16 +174,28 @@ Start Term
 Start Factor
 Start NewExpr
 Start Match
-[12] ^ (Power)
+[12] / (Divide)
 End NewExpr
+End Factor
 Start Match
-[12] y (Num)
+[12] 3 (EndFile)
+Start Factor
+Start NewExpr
+Start Match
+[12] - (Minus)
+End NewExpr
+End Factor
+End Term
+End Expr
+Start Match
+[12] 1 (EndFile)
+Start Expr
+Start Term
 Start Factor
 Start NewExpr
 Start Match
 [12] ; (LeftParen)
 End NewExpr
-End Factor
 End Factor
 End Term
 End Expr
@@ -150,7 +208,7 @@ Start Match
 Start Stmt
 Start WriteStmt
 Start Match
-[13] x (Num)
+[13] 6 (EndFile)
 Start Expr
 Start MathExpr
 Start Expr
@@ -158,11 +216,17 @@ Start Term
 Start Factor
 Start NewExpr
 Start Match
-[13] / (Divide)
+[13] == (Equal)
 End NewExpr
 End Factor
+End Term
+End Expr
+End MathExpr
 Start Match
-[13] y (Num)
+[13] 6 (EndFile)
+Start MathExpr
+Start Expr
+Start Term
 Start Factor
 Start NewExpr
 Start Match
@@ -180,7 +244,7 @@ Start Match
 Start Stmt
 Start WriteStmt
 Start Match
-[14] x (Num)
+[14] 4 (EndFile)
 Start Expr
 Start MathExpr
 Start Expr
@@ -188,17 +252,23 @@ Start Term
 Start Factor
 Start NewExpr
 Start Match
-[14] == (Equal)
+[14] + (Plus)
 End NewExpr
 End Factor
 End Term
 End Expr
-End MathExpr
 Start Match
-[14] y (Num)
-Start MathExpr
+[14] 6 (EndFile)
 Start Expr
 Start Term
+Start Factor
+Start NewExpr
+Start Match
+[14] / (Divide)
+End NewExpr
+End Factor
+Start Match
+[14] 2 (EndFile)
 Start Factor
 Start NewExpr
 Start Match
@@ -216,7 +286,7 @@ Start Match
 Start Stmt
 Start WriteStmt
 Start Match
-[15] x (Num)
+[15] 8 (EndFile)
 Start Expr
 Start MathExpr
 Start Expr
@@ -224,13 +294,13 @@ Start Term
 Start Factor
 Start NewExpr
 Start Match
-[15] + (Plus)
+[15] - (Minus)
 End NewExpr
 End Factor
 End Term
 End Expr
 Start Match
-[15] y (Num)
+[15] 3 (EndFile)
 Start Expr
 Start Term
 Start Factor
@@ -240,7 +310,7 @@ Start Match
 End NewExpr
 End Factor
 Start Match
-[15] x (Num)
+[15] 3 (EndFile)
 Start Factor
 Start NewExpr
 Start Match
@@ -258,7 +328,7 @@ Start Match
 Start Stmt
 Start WriteStmt
 Start Match
-[16] x (Num)
+[16] 100 (EndFile)
 Start Expr
 Start MathExpr
 Start Expr
@@ -266,15 +336,11 @@ Start Term
 Start Factor
 Start NewExpr
 Start Match
-[16] - (Minus)
+[16] * (Times)
 End NewExpr
 End Factor
-End Term
-End Expr
 Start Match
-[16] y (Num)
-Start Expr
-Start Term
+[16] 36 (EndFile)
 Start Factor
 Start NewExpr
 Start Match
@@ -282,7 +348,7 @@ Start Match
 End NewExpr
 End Factor
 Start Match
-[16] x (Num)
+[16] 6 (EndFile)
 Start Factor
 Start NewExpr
 Start Match
@@ -300,7 +366,7 @@ Start Match
 Start Stmt
 Start WriteStmt
 Start Match
-[17] x (Num)
+[17] 5 (EndFile)
 Start Expr
 Start MathExpr
 Start Expr
@@ -308,19 +374,23 @@ Start Term
 Start Factor
 Start NewExpr
 Start Match
-[17] * (Times)
-End NewExpr
-End Factor
-Start Match
-[17] y (Num)
-Start Factor
-Start NewExpr
-Start Match
 [17] / (Divide)
 End NewExpr
 End Factor
 Start Match
-[17] x (Num)
+[17] 5 (EndFile)
+Start Factor
+Start NewExpr
+Start Match
+[17] + (Plus)
+End NewExpr
+End Factor
+End Term
+End Expr
+Start Match
+[17] 1 (EndFile)
+Start Expr
+Start Term
 Start Factor
 Start NewExpr
 Start Match
@@ -338,7 +408,7 @@ Start Match
 Start Stmt
 Start WriteStmt
 Start Match
-[18] x (Num)
+[18] 3 (EndFile)
 Start Expr
 Start MathExpr
 Start Expr
@@ -346,19 +416,23 @@ Start Term
 Start Factor
 Start NewExpr
 Start Match
-[18] / (Divide)
+[18] * (Times)
 End NewExpr
 End Factor
 Start Match
-[18] y (Num)
+[18] 3 (EndFile)
 Start Factor
 Start NewExpr
 Start Match
-[18] / (Divide)
+[18] + (Plus)
 End NewExpr
 End Factor
+End Term
+End Expr
 Start Match
-[18] x (Num)
+[18] 100 (EndFile)
+Start Expr
+Start Term
 Start Factor
 Start NewExpr
 Start Match
@@ -376,7 +450,7 @@ Start Match
 Start Stmt
 Start WriteStmt
 Start Match
-[19] x (Num)
+[19] 6 (EndFile)
 Start Expr
 Start MathExpr
 Start Expr
@@ -384,11 +458,11 @@ Start Term
 Start Factor
 Start NewExpr
 Start Match
-[19] * (Times)
+[19] / (Divide)
 End NewExpr
 End Factor
 Start Match
-[19] y (Num)
+[19] 2 (EndFile)
 Start Factor
 Start NewExpr
 Start Match
@@ -398,7 +472,7 @@ End Factor
 End Term
 End Expr
 Start Match
-[19] x (Num)
+[19] 4 (EndFile)
 Start Expr
 Start Term
 Start Factor
@@ -418,7 +492,7 @@ Start Match
 Start Stmt
 Start WriteStmt
 Start Match
-[20] x (Num)
+[20] 6 (EndFile)
 Start Expr
 Start MathExpr
 Start Expr
@@ -426,21 +500,21 @@ Start Term
 Start Factor
 Start NewExpr
 Start Match
-[20] / (Divide)
+[20] ^ (Power)
 End NewExpr
-End Factor
 Start Match
-[20] y (Num)
+[20] 6 (EndFile)
 Start Factor
 Start NewExpr
 Start Match
-[20] + (Plus)
+[20] - (Minus)
 End NewExpr
+End Factor
 End Factor
 End Term
 End Expr
 Start Match
-[20] x (Num)
+[20] 4 (EndFile)
 Start Expr
 Start Term
 Start Factor
@@ -460,7 +534,7 @@ Start Match
 Start Stmt
 Start WriteStmt
 Start Match
-[21] x (Num)
+[21] 150 (EndFile)
 Start Expr
 Start MathExpr
 Start Expr
@@ -468,13 +542,13 @@ Start Term
 Start Factor
 Start NewExpr
 Start Match
-[21] + (Plus)
+[21] - (Minus)
 End NewExpr
 End Factor
 End Term
 End Expr
 Start Match
-[21] y (Num)
+[21] 100 (EndFile)
 Start Expr
 Start Term
 Start Factor
@@ -484,7 +558,7 @@ Start Match
 End NewExpr
 End Factor
 Start Match
-[21] y (Num)
+[21] 50 (EndFile)
 Start Factor
 Start NewExpr
 Start Match
@@ -502,7 +576,7 @@ Start Match
 Start Stmt
 Start WriteStmt
 Start Match
-[22] x (Num)
+[22] 2 (EndFile)
 Start Expr
 Start MathExpr
 Start Expr
@@ -510,28 +584,24 @@ Start Term
 Start Factor
 Start NewExpr
 Start Match
-[22] - (Minus)
+[22] * (Times)
 End NewExpr
 End Factor
-End Term
-End Expr
 Start Match
-[22] y (Num)
-Start Expr
-Start Term
+[22] 4 (EndFile)
 Start Factor
 Start NewExpr
 Start Match
-[22] / (Divide)
+[22] ^ (Power)
 End NewExpr
-End Factor
 Start Match
-[22] y (Num)
+[22] 4 (EndFile)
 Start Factor
 Start NewExpr
 Start Match
 [22] ; (LeftParen)
 End NewExpr
+End Factor
 End Factor
 End Term
 End Expr
@@ -544,7 +614,7 @@ Start Match
 Start Stmt
 Start WriteStmt
 Start Match
-[23] x (Num)
+[23] 3 (EndFile)
 Start Expr
 Start MathExpr
 Start Expr
@@ -552,19 +622,27 @@ Start Term
 Start Factor
 Start NewExpr
 Start Match
-[23] * (Times)
+[23] + (Plus)
 End NewExpr
 End Factor
+End Term
+End Expr
 Start Match
-[23] y (Num)
+[23] 2 (EndFile)
+Start Expr
+Start Term
 Start Factor
 Start NewExpr
 Start Match
-[23] / (Divide)
+[23] - (Minus)
 End NewExpr
 End Factor
+End Term
+End Expr
 Start Match
-[23] y (Num)
+[23] 6 (EndFile)
+Start Expr
+Start Term
 Start Factor
 Start NewExpr
 Start Match
@@ -582,7 +660,7 @@ Start Match
 Start Stmt
 Start WriteStmt
 Start Match
-[24] x (Num)
+[24] 5 (EndFile)
 Start Expr
 Start MathExpr
 Start Expr
@@ -590,19 +668,25 @@ Start Term
 Start Factor
 Start NewExpr
 Start Match
-[24] / (Divide)
+[24] & (AndSemiColon)
 End NewExpr
 End Factor
+End Term
 Start Match
-[24] y (Num)
+[24] 6 (EndFile)
+Start Term
 Start Factor
 Start NewExpr
 Start Match
-[24] / (Divide)
+[24] + (Plus)
 End NewExpr
 End Factor
+End Term
+End Expr
 Start Match
-[24] y (Num)
+[24] 10 (EndFile)
+Start Expr
+Start Term
 Start Factor
 Start NewExpr
 Start Match
@@ -620,7 +704,7 @@ Start Match
 Start Stmt
 Start WriteStmt
 Start Match
-[25] x (Num)
+[25] 5 (EndFile)
 Start Expr
 Start MathExpr
 Start Expr
@@ -633,10 +717,38 @@ End NewExpr
 End Factor
 End Term
 Start Match
-[25] y (Num)
+[25] ( (RightParen)
 Start Term
 Start Factor
 Start NewExpr
+Start Match
+[25] 3 (EndFile)
+Start Expr
+Start MathExpr
+Start Expr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[25] - (Minus)
+End NewExpr
+End Factor
+End Term
+End Expr
+Start Match
+[25] 5 (EndFile)
+Start Expr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[25] ) (LeftBrace)
+End NewExpr
+End Factor
+End Term
+End Expr
+End MathExpr
+End Expr
 Start Match
 [25] ; (LeftParen)
 End NewExpr
@@ -652,7 +764,7 @@ Start Match
 Start Stmt
 Start WriteStmt
 Start Match
-[26] x (Num)
+[26] 5 (EndFile)
 Start Expr
 Start MathExpr
 Start Expr
@@ -665,8 +777,16 @@ End NewExpr
 End Factor
 End Term
 Start Match
-[26] y (Num)
+[26] 3 (EndFile)
 Start Term
+Start Factor
+Start NewExpr
+Start Match
+[26] * (Times)
+End NewExpr
+End Factor
+Start Match
+[26] 4 (EndFile)
 Start Factor
 Start NewExpr
 Start Match
@@ -684,7 +804,7 @@ Start Match
 Start Stmt
 Start WriteStmt
 Start Match
-[27] x (Num)
+[27] 10 (EndFile)
 Start Expr
 Start MathExpr
 Start Expr
@@ -692,23 +812,19 @@ Start Term
 Start Factor
 Start NewExpr
 Start Match
-[27] * (Times)
+[27] ^ (Power)
 End NewExpr
-End Factor
 Start Match
-[27] y (Num)
+[27] 10 (EndFile)
 Start Factor
 Start NewExpr
 Start Match
-[27] - (Minus)
+[27] / (Divide)
 End NewExpr
 End Factor
-End Term
-End Expr
+End Factor
 Start Match
-[27] y (Num)
-Start Expr
-Start Term
+[27] 1 (EndFile)
 Start Factor
 Start NewExpr
 Start Match
@@ -726,19 +842,11 @@ Start Match
 Start Stmt
 Start WriteStmt
 Start Match
-[28] x (Num)
+[28] 10 (EndFile)
 Start Expr
 Start MathExpr
 Start Expr
 Start Term
-Start Factor
-Start NewExpr
-Start Match
-[28] / (Divide)
-End NewExpr
-End Factor
-Start Match
-[28] y (Num)
 Start Factor
 Start NewExpr
 Start Match
@@ -748,67 +856,45 @@ End Factor
 End Term
 End Expr
 Start Match
-[28] y (Num)
+[28] 10 (EndFile)
 Start Expr
 Start Term
 Start Factor
 Start NewExpr
 Start Match
-[28] ; (LeftParen)
-End NewExpr
-End Factor
-End Term
-End Expr
-End MathExpr
-End Expr
-End WriteStmt
-End Stmt
-Start Match
-[29] write (Write)
-Start Stmt
-Start WriteStmt
-Start Match
-[29] x (Num)
-Start Expr
-Start MathExpr
-Start Expr
-Start Term
-Start Factor
-Start NewExpr
-Start Match
-[29] - (Minus)
+[28] + (Plus)
 End NewExpr
 End Factor
 End Term
 End Expr
 Start Match
-[29] y (Num)
+[28] 10 (EndFile)
 Start Expr
 Start Term
 Start Factor
 Start NewExpr
 Start Match
-[29] / (Divide)
+[28] / (Divide)
 End NewExpr
 End Factor
 Start Match
-[29] y (Num)
+[28] 10 (EndFile)
 Start Factor
 Start NewExpr
 Start Match
-[29] + (Plus)
+[28] + (Plus)
 End NewExpr
 End Factor
 End Term
 End Expr
 Start Match
-[29] x (Num)
+[28] 5 (EndFile)
 Start Expr
 Start Term
 Start Factor
 Start NewExpr
 Start Match
-[30] end (End)
+[29] end (End)
 End NewExpr
 End Factor
 End Term

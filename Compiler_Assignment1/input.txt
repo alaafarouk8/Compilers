@@ -4,27 +4,26 @@
   compute minus
 
 }
-read x; {input an integer}
-read y;{input an integer}
-write x+y;{output an integer}
-write x-y;{output an integer}
-write x*y;{output an integer}
-write x^y;{output an integer}
-write x/y;{output an integer}
-write x==y;{output an integer}
-write x+y/x;{output an integer}
-write x-y/x;{output an integer}
-write x*y/x;{output an integer}
-write x/y/x;{output an integer}
-write x*y+x;{output an integer}
-write x/y+x;{output an integer}
-write x+y/y;{output an integer}
-write x-y/y;{output an integer}
-write x*y/y;{output an integer}
-write x/y/y;{output an integer}
-write x&y;{output an integer}
-write x&y;{output an integer}
-write x*y-y;{output an integer}
-write x/y-y;{output an integer}
-write x-y/y+x{output an integer}
+
+write 100+100^2;{output an integer}
+write 200-100*2;{output an integer}
+write 5*5/1;{output an integer}
+write 2^6+5;{output an integer}
+write 6/3-1;{output an integer}
+write 6==6;{output an integer}
+write 4+6/2;{output an integer}
+write 8-3/3;{output an integer}
+write 100*36/6;{output an integer}
+write 5/5+1;{output an integer}
+write 3*3+100;{output an integer}
+write 6/2+4;{output an integer}
+write 6^6-4;{output an integer}
+write 150-100/50;{output an integer}
+write 2*4^4;{output an integer}
+write 3+2-6;{output an integer}
+write 5&6+10;{output an integer}
+write 5&(3-5);{output an integer}
+write 5&3*4;{output an integer}
+write 10^10/1;{output an integer}
+write 10-10+10/10+5{output an integer}
 end
