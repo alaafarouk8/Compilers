@@ -1,29 +1,91 @@
-{ Sample program
+{ 
+  Sample program
   in TINY language
-  compute plus
-  compute minus
-
+  
 }
 
-write 100+100^2;{output an integer}
-write 200-100*2;{output an integer}
-write 5*5/1;{output an integer}
-write 2^6+5;{output an integer}
-write 6/3-1;{output an integer}
-write 6==6;{output an integer}
-write 4+6/2;{output an integer}
-write 8-3/3;{output an integer}
-write 100*36/6;{output an integer}
-write 5/5+1;{output an integer}
-write 3*3+100;{output an integer}
-write 6/2+4;{output an integer}
-write 6^6-4;{output an integer}
-write 150-100/50;{output an integer}
-write 2*4^4;{output an integer}
-write 3+2-6;{output an integer}
+write 50&100^2;{output an integer}   
+{
+  result: ^ is right associative has the highest precedences so (100^2) is computed first and the result of this(1000) then 50 - 1000 then the absolute diff = 9950.
+} 
+write 200&100*2;{output an integer}
+{
+  result: * is the highest precedences so (100*2) is computed first and the result of this(200) then 200-200 then the absolute diff = 0.
+} 
+write (3&5)*5/1;{output an integer}
+{
+  result : left associative so (3&5) is computed first and the result of this(2) multiplied by 5 then divided by 1 so ,  the result is 10.
+}
+write 2^6+5&2;{output an integer}
+{
+  result: ^ is right associative has the highest precedences so (2^6) is computed first and the result of this(64) then 64+3 = 67.
+} 
+write (6&3)&(10&1);{output an integer}
+{
+  result: (6&3) is computed first the (10&1) so the result of these (3&9) then the absolute diff = 6.
+} 
+write 6==6&10;{output an integer}
+{
+  result: (6&10) is computed first so the result of this (4) so 4 not equal 6 .
+} 
+write 4+1&6/2;{output an integer}
+{
+  result: (1&6) is computed first so the result of this (5) so 4+5/2= 6 .
+} 
+write 8-5&3/3;{output an integer}
+{
+   result: (3/3) is computed first so the result of this (1) then (5&1)=4 so 8-4=4 .
+}
+write 100*3&5/6;{output an integer}
+{
+ result: (5/6) is computed first so the result of this (0) then (3&5)=0 so 100*3 = 300.
+}
+write 5/5+1&1;{output an integer}
+{
+  result: (5/5) is computed first so the result of this (1) then (1&1)=0 so 1-0=1 .
+}
+write 3*3&5+100;{output an integer}
+{
+     result: (3*3) is computed first so the result of this (9) then (9&5)=4 so 4+100=104 .
+}
+write 6/2&3+4;{output an integer}
+{
+     result: (6/2) is computed first so the result of this (3) then (3&3)=0 so 0+4=4 .
+}
+write 6^6-4&2;{output an integer}
+{
+     result: (6/6) is computed first so the result of this (36) then (4&2)=0 so 36+2=38 .
+}
+write 150&50-100/50;{output an integer}
+{
+     result: (150&50) is computed first so the result of this (100) then (100/50)=2 so 100-2=98 .
+}
+write 2*4^4&2;{output an integer}
+{
+     result: (4^4) is computed first so the result of this (256) then (2*256)=512 so 512-2=510.
+}
+write 3+2-6&10;{output an integer}
+{
+    result: (6&10) is computed first so the result of this (4) then (3+2)=5 so 5-4=1.
+}
 write 5&6+10;{output an integer}
-write 5&(3-5);{output an integer}
+{
+    result: (5&10) is computed first so the result of this (1) then (1+10)=11 .
+}
+write 5&3-2;{output an integer}
+{
+    result: (5&3) is computed first so the result of this (2) then (2-2)=0 .
+}
 write 5&3*4;{output an integer}
-write 10^10/1;{output an integer}
-write 10-10+10/10+5{output an integer}
+{
+    result: (3*4) is computed first so the result of this (12) then abs of this (5-12)=7 .
+}
+write 10^4/1*1;{output an integer}
+{
+    result: (10^4) is computed first so the result of this (10000) then (10000*1)=10000 .
+}
+write 10-10&10+10/10+5{output an integer}
+{
+    result: (10-10&10) is computed first so the result of this (10) then (10/10)=1 then 1+5 =6 so the result is 6+10 = 16 .
+}
 end
