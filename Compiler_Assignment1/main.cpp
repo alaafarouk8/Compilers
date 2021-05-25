@@ -952,18 +952,19 @@ int Power(int a, int b)
     if(b>=1) return a*Power(a, b-1);
     return 0;
 }
+// this function returns abs for number.
 int getAbs(int n)
 {
     int const mask = n >> (sizeof(int) * CHARBIT - 1);
     return ((n + mask) ^ mask);
 }
+// this function returns abs diff between two numbers.
 int andfun(int a, int b)
 {
    int m ;
    m=a-b ;
    return getAbs(m) ;
 }
-
 
 int Evaluate(TreeNode* node, SymbolTable* symbol_table, int* variables)
 {
@@ -975,7 +976,6 @@ int Evaluate(TreeNode* node, SymbolTable* symbol_table, int* variables)
 
     if(node->oper==EQUAL) return a==b;
     if(node->oper==LESS_THAN) return a<b;
- //   if(node->oper==BIGGER_THAN) return a>b;
     if(node->oper==PLUS) return a+b;
     if(node->oper==MINUS) return a-b;
     if(node->oper==TIMES) return a*b;
