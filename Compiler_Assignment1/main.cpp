@@ -3,7 +3,6 @@
 #include <cstring>
 #define CHARBIT 8
 using namespace std;
-
 /*
 {
   Sample program
@@ -21,7 +20,7 @@ write 200&100*2;{output an integer}
 }
 write (3&5)*5/1;{output an integer}
 {
-  result : left associative so (3&5) is computed first and the result of this(2) multiplied by 5 then divided by 1 so ,  the result is 10.
+  result : () is the highest precedences ,left associative so (3&5) is computed first and the result of this(2) multiplied by 5 then divided by 1 so ,  the result is 10.
 }
 write 2^6+5&2;{output an integer}
 {
@@ -37,39 +36,39 @@ write 6==6&10;{output an integer}
 }
 write 4+1&6/2;{output an integer}
 {
-  result: (1&6) is computed first so the result of this (5) so 4+5/2= 6 .
+  result: / is the highest precedences, (6/2) is computed first so the result of this (3) so 4+2= 6 .
 }
 write 8-5&3/3;{output an integer}
 {
-   result: (3/3) is computed first so the result of this (1) then (5&1)=4 so 8-4=4 .
+   result: / is the highest precedences , (3/3) is computed first so the result of this (1) then (5&1)=4 so 8-4=4 .
 }
 write 100*3&5/6;{output an integer}
 {
- result: (5/6) is computed first so the result of this (0) then (3&5)=0 so 100*3 = 300.
+ result: * is the highest precedences (100*3) is computed first so the result of this (300) then (5/6)=0 so 300-0= 300.
 }
 write 5/5+1&1;{output an integer}
 {
-  result: (5/5) is computed first so the result of this (1) then (1&1)=0 so 1-0=1 .
+  result: / is the highest precedences (5/5) is computed first so the result of this (1) then (1&1)=0 so 1-0=1 .
 }
 write 3*3&5+100;{output an integer}
 {
-     result: (3*3) is computed first so the result of this (9) then (9&5)=4 so 4+100=104 .
+     result: * * is the highest precedences (3*3) is computed first so the result of this (9) then (9&5)=4 so 4+100=104 .
 }
 write 6/2&3+4;{output an integer}
 {
-     result: (6/2) is computed first so the result of this (3) then (3&3)=0 so 0+4=4 .
+     result: / * is the highest precedences, (6/2) is computed first so the result of this (3) then (3&3)=0 so 0+4=4 .
 }
 write 6^6-4&2;{output an integer}
 {
-     result: (6/6) is computed first so the result of this (36) then (4&2)=0 so 36+2=38 .
+     result: ^ is the highest precedences (6^6) is computed first so the result of this (36) then (4&2)=0 so 36+2=38 .
 }
 write 150&50-100/50;{output an integer}
 {
-     result: (150&50) is computed first so the result of this (100) then (100/50)=2 so 100-2=98 .
+     result: / is the highest precedences (100/50) is computed first so the result of this (2) then (150&50)=100 so 100-2=98 .
 }
 write 2*4^4&2;{output an integer}
 {
-     result: (4^4) is computed first so the result of this (256) then (2*256)=512 so 512-2=510.
+     result: ^ is the highest precedences , (4^4) is computed first so the result of this (256) then (2*256)=512 so 512-2=510.
 }
 write 3+2-6&10;{output an integer}
 {
@@ -85,15 +84,15 @@ write 5&3-2;{output an integer}
 }
 write 5&3*4;{output an integer}
 {
-    result: (3*4) is computed first so the result of this (12) then abs of this (5-12)=7 .
+    result: * is the highest precedences , (3*4) is computed first so the result of this (12) then abs of this (5-12)=7 .
 }
 write 10^4/1*1;{output an integer}
 {
-    result: (10^4) is computed first so the result of this (10000) then (10000*1)=10000 .
+    result: ^ is the highest precedences (10^4) is computed first so the result of this (10000) then (10000*1)=10000 .
 }
 write 10-10&10+10/10+5{output an integer}
 {
-    result: (10-10&10) is computed first so the result of this (10) then (10/10)=1 then 1+5 =6 so the result is 6+10 = 16 .
+    result: / is the highest precedences , (10/10) = 1 , then (10&10) = 0 , 10-0+1+5 = 16
 }
 end
 */
@@ -537,34 +536,26 @@ TreeNode* Term(CompilerInfo* pci, ParseInfo* ppi)
 
 TreeNode* ExprAbs(CompilerInfo* pci, ParseInfo* ppi)
 {
-    pci->debug_file.Out("Start Expr");
+    pci->debug_file.Out("Start MathExpr");
 
-     // called function Term has term -> factor { (*|/) factor }
     TreeNode* tree=Term(pci, ppi);
 
-    // check if next token type is and (&) or not
-    if(ppi->next_token.type==AND)
+    while(ppi->next_token.type==AND)
     {
-        // if yes create object new-tree
         TreeNode* new_tree=new TreeNode;
-        // and node kind is operation node
         new_tree->node_kind=OPER_NODE;
         new_tree->oper=ppi->next_token.type;
         new_tree->line_num=pci->in_file.cur_line_num;
-        // so child one is tree
+
         new_tree->child[0]=tree;
-        // called match function
         Match(pci, ppi, ppi->next_token.type);
-        // child two is term .
         new_tree->child[1]=Term(pci, ppi);
 
-        pci->debug_file.Out("End Expr");
-        return new_tree;
+        tree=new_tree;
     }
-    pci->debug_file.Out("End Expr");
+    pci->debug_file.Out("End MathExpr");
     return tree;
 }
-
 
 // mathexpr -> term { (+|-) term }    left associative
 TreeNode* MathExpr(CompilerInfo* pci, ParseInfo* ppi)
