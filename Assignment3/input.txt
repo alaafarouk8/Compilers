@@ -1,0 +1,135 @@
+{ Sample program
+  in TINY language
+  compute factorial
+}
+{ the result of this for loop  is 25 and we have from 1 to n = 11 and the inc by +2 and breaks when i = 10 and sum all odd numbers }
+p:=0;
+n:=11;
+  for i from 1 to n inc 2
+  startfor
+  p:=p+i;
+  if i=10 then break end
+  endfor;
+write p;
+{ the result of this for loop  is 80 and we have from 20 to n = 10 and the inc is -2 and breaks when i = 10 and sum all even numbers }
+k:=0;
+  for i from 20 to 10 inc -2
+  startfor
+  k:=k+i;
+  if i=0 then break end
+  endfor;
+write k;
+{ the result of this for loop  is -6741 and we have from 200 to n = 11 and the inc by -3 and breaks when i =0 , and sum all numbers like 200 197 194 and so on ....0}
+b:=0;
+  for i from 200 to n inc -3
+  startfor
+  b:=b-i;
+  if i=0 then break end
+  endfor;
+write b;
+{ the result of this for loop  is 1 and used nested for loops first loop from 100 to 0 and inc by -3 and second for loop from 100 to 0 and the two for loops breaks when i , j = 0 and got the value of x = j*i}
+x:=0;
+  for i from 100 to f inc -3
+  startfor
+      for j from 100 to f inc -3
+         startfor
+ 	 x:=i*j;
+         if j=0 then break end
+         endfor;
+  if i=0 then break end
+  endfor;
+write x;
+{ the result of this for loop  is 2 and used nested for loops first loop from 11 to 0 and inc by -2 and second for loop from 11 to 0 and the two for loops breaks when i , j = 0 and got the value of d = j+i}
+d:=0;
+  for i from 11 to f inc -2
+  startfor
+      for j from 11 to f inc -2
+         startfor
+ 	 d:=i+j;
+         if j=0 then break end
+         endfor;
+  if i=0 then break end
+  endfor;
+write d;
+{ the result of this for loop  is 25 and we have from 1 to n = 11 and the inc by +2 and breaks when i = 11 and sum all odd numbers }
+s:=0;
+  for i from 1 to 11 inc 2
+  startfor
+  s:=s+i;
+  if i=11 then break end
+  endfor;
+write s;
+{ the result of this for loop  is 6767 and we have from 200 to n = 0 and the inc by -3 and sum all numbers like 200 197 196 193 ..... 0 }
+a:=0;
+  for i from 200 to f inc -3
+  startfor
+  a:=a+i;
+  if i=0 then break end
+  endfor;
+write a ;
+{ the result of this for loop  is 6688 and we have from 10 to n = 200 and the inc by 3 and breaks when i = 200 and sum all numbers 10 13 16 ..... 200}
+b:=0;
+  for i from 10 to 200 inc 3
+  startfor
+  b:=b+i;
+  if i=200 then break end
+  endfor;
+write b;
+{ the result of this for loop is 18 and we have nested loops first loop from 1 to 11 and the inc by 2 and breaks when i = 11 and the second loop is from 1 to 11 and breaks when i = 11 and got sum of all odd numbers i+j }
+c:=0;
+  for i from 1 to 11 inc 2
+  startfor
+      for j from 1 to 11 inc 2
+         startfor
+ 	 c:=i+j;
+         if j=11 then break end
+         endfor;
+  if i=11 then break end
+  endfor;
+write c;
+{ the result of this for loop  is 81 and we have nested loops first loop from 1 to 11 and the inc by 2 and breaks when i = 11 and the second loop is from 1 to 11 and breaks when i = 11 and got product of all odd numbers i*j }
+z:=0;
+  for i from 1 to 11 inc 2
+  startfor
+      for j from 1 to 11 inc 2
+         startfor
+ 	 z:=i*j;
+         if j=11 then break end
+         endfor;
+  if i=11 then break end
+  endfor;
+write z;
+{ the result of this for loop  is 9603 and we have nested loops first loop from 1 to 100 and the inc by 4 and breaks when i = 100 and the second loop is from 1 to 100 and breaks when i = 100 and got product of all numbers i*j }
+x:=0;
+  for i from 1 to 100 inc 4
+  startfor
+      for j from 1 to 100 inc 2
+         startfor
+ 	 x:=i*j;
+         if j=100 then break end
+         endfor;
+  if i=100 then break end
+  endfor;
+write x;
+{ the result of this for loop is 1998 and we have nested loops first loop from 1 to 1000 and the inc by 2 and breaks when i = 1000 and the second loop is from 1 to 1000 and breaks when i = 1000 and got sum of all odd numbers i+j }
+y:=0;
+  for i from 1 to 1000 inc 2
+  startfor
+      for j from 1 to 1000 inc 2
+         startfor
+ 	 y:=i+j;
+         if j=1000 then break end
+         endfor;
+  if i=1000 then break end
+  endfor;
+write y;
+{ the result of this for loop is 36 and we have from 1 to n = 11 and the inc by +2 and breaks when i = 10 and sum all odd numbers }
+m:=0;
+k:=15;
+  for i from 1 to k inc 2
+  startfor
+  m:=m+i;
+  if i=11 then break end
+  endfor;
+write m
+
